@@ -1,4 +1,4 @@
-// some comment about what this function does
+// this function adds two numbers
 function add(x, y) {
     let res = x + y;
     return res;
