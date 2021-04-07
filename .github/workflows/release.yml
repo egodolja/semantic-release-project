@@ -1,0 +1,34 @@
+name: Release Shared Types Package
+on:
+  push:
+    paths:
+    - "sub-package/*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
+
+    - name: Use Node 12
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    
+    - name: Navigate to Sub-Package
+      run: cd sub-package
+    
+    - name: Setup .npmrc file
+      run: |
+        # Adds auth info to end of .npmrc to allow us to deploy new package version
+        echo '//npm-proxy.fury.io/egodoljaorg/:_authToken=${NPM_TOKEN}' >> .npmrc
+
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npx semantic-release
+
