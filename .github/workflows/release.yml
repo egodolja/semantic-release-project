@@ -16,6 +16,11 @@ jobs:
       with:
         node-version: 12.x
     
+    - name: Setup .npmrc file
+      run: |
+        # Adds auth info to end of .npmrc to allow us to deploy new package version
+        echo '//npm-proxy.fury.io/egodoljaorg/:_authToken=${NPM_TOKEN}' >> .npmrc
+    
     - name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
