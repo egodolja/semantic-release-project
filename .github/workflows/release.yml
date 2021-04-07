@@ -23,6 +23,7 @@ jobs:
     - name: Setup .npmrc file
       run: |
         # Adds auth info to end of .npmrc to allow us to deploy new package version
+        echo 'registry=https://npm-proxy.fury.io/egodoljaorg/' > .npmrc
         echo '//npm-proxy.fury.io/egodoljaorg/:_authToken=${NPM_TOKEN}' >> .npmrc
     
     - name: Release
