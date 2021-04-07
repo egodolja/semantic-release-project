@@ -19,17 +19,6 @@ jobs:
     - name: Navigate to Sub-Package
       run: cd sub-package
     
-    - name: Setup .npmrc file
-      run: |
-        # Adds auth info to end of .npmrc to allow us to deploy new package version
-        echo '//npm-proxy.fury.io/egodoljaorg/:_authToken=${NPM_TOKEN}' >> .npmrc
-
-    - name: check tokens
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: echo "${GITHUB_TOKEN} - ${NPM_TOKEN}"
-    
     - name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
