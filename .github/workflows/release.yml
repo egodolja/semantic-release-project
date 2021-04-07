@@ -16,6 +16,10 @@ jobs:
       with:
         node-version: 12.x
     
+    - name: Install dependencies
+      working-directory: ./sub-package
+      run: npm i
+    
     - name: Setup .npmrc file
       run: |
         # Adds auth info to end of .npmrc to allow us to deploy new package version
