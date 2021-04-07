@@ -19,6 +19,9 @@ jobs:
     - name: Navigate to Sub-Package
       run: cd sub-package
     
+    - name: Check tokens
+      run: echo 'npm_token ${secrets.NPM_TOKEN}--- github_token ${secrets.GITHUB_TOKEN} --- test just npm_token ${NPM_TOKEN}'
+    
     - name: Setup .npmrc file
       run: |
         # Adds auth info to end of .npmrc to allow us to deploy new package version
