@@ -1,0 +1,23 @@
+{
+  "name": "semantic-release-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egodolja/semantic-release-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/egodolja/semantic-release-project/issues"
+  },
+  "homepage": "https://github.com/egodolja/semantic-release-project#readme",
+  "devDependencies": {
+    "semantic-release": "^17.4.2"
+  }
+}
