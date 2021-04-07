@@ -17,7 +17,5 @@
     "url": "https://github.com/egodolja/semantic-release-project/issues"
   },
   "homepage": "https://github.com/egodolja/semantic-release-project#readme",
-  "devDependencies": {
-    "semantic-release": "^17.4.2"
-  }
+  "devDependencies": {}
 }

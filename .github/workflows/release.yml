@@ -16,12 +16,10 @@ jobs:
       with:
         node-version: 12.x
     
-    - name: Navigate to Sub-Package
-      run: cd sub-package
-    
     - name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      working-directory: ./sub-package
       run: npx semantic-release
 
