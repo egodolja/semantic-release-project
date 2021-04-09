@@ -17,7 +17,7 @@ jobs:
       uses: technote-space/get-diff-action@v4
       with:
         FILES: |
-          sub-package/main.js
+          main.js
     
     - name: Conditional
       if: env.GIT_DIFF
