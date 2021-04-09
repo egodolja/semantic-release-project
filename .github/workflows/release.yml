@@ -1,8 +1,5 @@
 name: Release Shared Types Package
-on:
-  push:
-    paths:
-    - "sub-package/*"
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
