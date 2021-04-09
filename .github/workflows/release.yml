@@ -16,20 +16,14 @@ jobs:
       with:
         node-version: 12.x
     
-    - name: Install dependencies
-      working-directory: ./sub-package
-      run: npm i
+    - name: Get diff
+      uses: technote-space/get-diff-action@v4
+      with:
+        FILES: |
+          sub-package/main.js
     
-    - name: Setup .npmrc file
+    - name: Conditional
+      if: env.GIT_DIFF
       run: |
-        # Adds auth info to end of .npmrc to allow us to deploy new package version
-        echo 'registry=https://npm-proxy.fury.io/egodoljaorg/' > .npmrc
-        echo '//npm-proxy.fury.io/egodoljaorg/:_authToken=${NPM_TOKEN}' >> .npmrc
-    
-    - name: Release
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      working-directory: ./sub-package
-      run: npx semantic-release
+        echo 'found diff: ${GIT_DIFF}'
 
